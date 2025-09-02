@@ -77,11 +77,11 @@ export const PeopleFilters: React.FC<Props> = ({
             <Link
               data-cy="century"
               className={classNames('button mr-1', {
-                'is-info': centuries.join('').includes('16'),
+                'is-info': centuries.includes('16'),
               })}
               to={{
                 search: getSearchWith(searchParams, {
-                  centuries: centuries.join('').includes('16')
+                  centuries: centuries.includes('16')
                     ? centuries.filter(
                         currentCentury => currentCentury !== '16',
                       )
@@ -99,7 +99,7 @@ export const PeopleFilters: React.FC<Props> = ({
               })}
               to={{
                 search: getSearchWith(searchParams, {
-                  centuries: centuries.join('').includes('17')
+                  centuries: centuries.includes('17')
                     ? centuries.filter(
                         currentCentury => currentCentury !== '17',
                       )
@@ -117,7 +117,7 @@ export const PeopleFilters: React.FC<Props> = ({
               })}
               to={{
                 search: getSearchWith(searchParams, {
-                  centuries: centuries.join('').includes('18')
+                  centuries: centuries.includes('18')
                     ? centuries.filter(
                         currentCentury => currentCentury !== '18',
                       )
@@ -135,7 +135,7 @@ export const PeopleFilters: React.FC<Props> = ({
               })}
               to={{
                 search: getSearchWith(searchParams, {
-                  centuries: centuries.join('').includes('19')
+                  centuries: centuries.includes('19')
                     ? centuries.filter(
                         currentCentury => currentCentury !== '19',
                       )
@@ -153,7 +153,7 @@ export const PeopleFilters: React.FC<Props> = ({
               })}
               to={{
                 search: getSearchWith(searchParams, {
-                  centuries: centuries.join('').includes('20')
+                  centuries: centuries.includes('20')
                     ? centuries.filter(
                         currentCentury => currentCentury !== '20',
                       )

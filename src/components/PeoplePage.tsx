@@ -35,7 +35,7 @@ export const PeoplePage = () => {
   };
 
   const handleCenturiesChange = (cent: number | null) => {
-    const newCenturies = centuries.join('').includes(String(cent))
+    const newCenturies = centuries.includes(String(cent))
       ? centuries.filter(currentCentury => currentCentury !== String(cent))
       : [...centuries, String(cent)];
 
@@ -52,7 +52,7 @@ export const PeoplePage = () => {
 
     const filterByCentury =
       centuries.length !== 0
-        ? centuries.join('').includes(String(Math.ceil(person.born / 100)))
+        ? centuries.includes(String(Math.ceil(person.born / 100)))
         : true;
     const filterByGender = sex ? person.sex === sex : true;
 
@@ -65,11 +65,11 @@ export const PeoplePage = () => {
 
     if (sort !== sortField) {
       newSortField = sortField;
-      newSortOrder = 'asc';
-    } else if (order === 'asc') {
+      newSortOrder = null;
+    } else if (!order) {
       newSortField = sortField;
       newSortOrder = 'desc';
-    } else if (order === 'desc') {
+    } else {
       newSortField = null;
       newSortOrder = null;
     }
@@ -82,7 +82,7 @@ export const PeoplePage = () => {
       ? filteredPeople
       : [...filteredPeople].sort((a, b) => {
         /* eslint-disable */
-          const direction = order === 'asc' ? 1 : -1;
+          const direction = order === 'desc' ? 1 : -1;
 
           switch (sort) {
             case 'name':
