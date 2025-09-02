@@ -77,30 +77,29 @@ export const PeoplePage = () => {
     setSearchWith({ sort: newSortField || null, order: newSortOrder || null });
   };
 
-  const sortedPeople =
-    !sort || !order
-      ? filteredPeople
-      : [...filteredPeople].sort((a, b) => {
-        /* eslint-disable */
-          const direction = order === 'desc' ? 1 : -1;
+  const sortedPeople = !sort
+    ? filteredPeople
+    : [...filteredPeople].sort((a, b) => {
+      /* eslint-disable */
+        const direction = order === 'desc' ? -1 : 1;
 
-          switch (sort) {
-            case 'name':
-              return direction * a.name.localeCompare(b.name);
+        switch (sort) {
+          case 'name':
+            return direction * a.name.localeCompare(b.name);
 
-            case 'sex':
-              return direction * a.sex.localeCompare(b.sex);
+          case 'sex':
+            return direction * a.sex.localeCompare(b.sex);
 
-            case 'born':
-              return direction * (+a.born - +b.born);
+          case 'born':
+            return direction * (+a.born - +b.born);
 
-            case 'died':
-              return direction * (+a.died - +b.died);
+          case 'died':
+            return direction * (+a.died - +b.died);
 
-            default:
-              return 0;
-          }
-        });
+          default:
+            return 0;
+        }
+      });
   {
     /* eslint-enable */
   }

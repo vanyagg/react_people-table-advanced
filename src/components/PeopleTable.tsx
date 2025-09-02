@@ -39,7 +39,7 @@ export const PeopleTable: React.FC<Props> = ({
                 to={{
                   search: getSearchWith(searchParams, {
                     sort: 'name',
-                    order: order === 'asc' ? 'desc' : 'asc',
+                    order: sort !== 'name' ? null : !order ? 'desc' : null,
                   }),
                 }}
               >
@@ -47,7 +47,7 @@ export const PeopleTable: React.FC<Props> = ({
                   <i
                     className={classNames('fas', {
                       'fa-sort': sort !== 'name',
-                      'fa-sort-up': sort === 'name' && order === 'asc',
+                      'fa-sort-up': sort === 'name' && !order,
                       'fa-sort-down': sort === 'name' && order === 'desc',
                     })}
                   />
@@ -63,7 +63,7 @@ export const PeopleTable: React.FC<Props> = ({
                 to={{
                   search: getSearchWith(searchParams, {
                     sort: 'sex',
-                    order: order === 'asc' ? 'desc' : 'asc',
+                    order: sort !== 'sex' ? null : !order ? 'desc' : null,
                   }),
                 }}
               >
@@ -71,7 +71,7 @@ export const PeopleTable: React.FC<Props> = ({
                   <i
                     className={classNames('fas', {
                       'fa-sort': sort !== 'sex',
-                      'fa-sort-up': sort === 'sex' && order === 'asc',
+                      'fa-sort-up': sort === 'sex' && !order,
                       'fa-sort-down': sort === 'sex' && order === 'desc',
                     })}
                   />
@@ -87,7 +87,7 @@ export const PeopleTable: React.FC<Props> = ({
                 to={{
                   search: getSearchWith(searchParams, {
                     sort: 'born',
-                    order: order === 'asc' ? 'desc' : 'asc',
+                    order: sort !== 'born' ? null : !order ? 'desc' : null,
                   }),
                 }}
               >
@@ -95,7 +95,7 @@ export const PeopleTable: React.FC<Props> = ({
                   <i
                     className={classNames('fas', {
                       'fa-sort': sort !== 'born',
-                      'fa-sort-up': sort === 'born' && order === 'asc',
+                      'fa-sort-up': sort === 'born' && !order,
                       'fa-sort-down': sort === 'born' && order === 'desc',
                     })}
                   />
@@ -111,7 +111,7 @@ export const PeopleTable: React.FC<Props> = ({
                 to={{
                   search: getSearchWith(searchParams, {
                     sort: 'died',
-                    order: order === 'asc' ? 'desc' : 'asc',
+                    order: sort !== 'died' ? null : !order ? 'desc' : null,
                   }),
                 }}
               >
@@ -119,7 +119,7 @@ export const PeopleTable: React.FC<Props> = ({
                   <i
                     className={classNames('fas', {
                       'fa-sort': sort !== 'died',
-                      'fa-sort-up': sort === 'died' && order === 'asc',
+                      'fa-sort-up': sort === 'died' && !order,
                       'fa-sort-down': sort === 'died' && order === 'desc',
                     })}
                   />
